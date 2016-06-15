@@ -111,6 +111,18 @@ add_action( 'after_setup_theme', 'styleme_content_width', 0 );
 
 
 /**
+ * Tag Cloud Widget
+ */
+function my_widget_tag_cloud_args( $args ) {
+  $args['largest'] = 11;
+  $args['smallest'] = 11;
+  $args['unit'] = 'px';
+  return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args' );
+
+
+/**
  * Implement Widgets.
  */
 require get_template_directory() . '/inc/widgets.php';
