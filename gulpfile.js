@@ -66,7 +66,7 @@ gulp.task( 'jshint', function() {
 // and creates two versions: normal and minified.
 // It's dependent on the jshint task to succeed.
 gulp.task( 'scripts', ['jshint'], function() {
-  return gulp.src( './js/manifest.js' )
+  return gulp.src( './js/themecustom.js' )
     .pipe( include() )
     .pipe( rename( { basename: 'scripts' } ) )
     .pipe( gulp.dest( './js/dist' ) )
