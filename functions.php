@@ -80,44 +80,17 @@ function styleme_content_width() {
 }
 add_action( 'after_setup_theme', 'styleme_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function styleme_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'styleme' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'styleme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'styleme_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Implement Widgets.
  */
-function styleme_scripts() {
-	wp_enqueue_style( 'styleme-style', get_stylesheet_uri() );
+require get_template_directory() . '/inc/widgets.php';
 
-	wp_enqueue_script( 'styleme-navigation', get_template_directory_uri() . '/js/dist/scripts.min.js', array('jquery'), '1.0.0', true );
-
-	wp_enqueue_script( 'styleme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'styleme_scripts' );
-
-/**
- * Implement the Custom Header feature.
+ /**
+ * Implement Scripts.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/scripts.php';
+
 
 /**
  * Custom template tags for this theme.
