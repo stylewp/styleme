@@ -30,6 +30,7 @@
 
 .site-content {
   @include make-row();
+  word-break: break-word;
 
   .content-full {
     @include make-md-column(12);
