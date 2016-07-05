@@ -22,6 +22,13 @@ What's next
 - 404
 - Menu Style
 - Header and Footer Style
+- 
+
+Setup
+-------
+1. npm install
+2. bower install
+3. gulp icons
 
 
 
